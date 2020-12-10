@@ -1,0 +1,93 @@
+﻿@*
+    @model CafeX.Models.Order
+    Need to edit a list to create Order
+*@
+
+@model IEnumerable<CafeX.Models.Order>
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create New</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Order</h4>
+
+        <table class="table">
+            <tr>
+                <th> @Html.DisplayNameFor(model => model.Name) </th>
+                <th> @Html.DisplayNameFor(model => model.Qty) </th>
+                <th> @Html.DisplayNameFor(model => model.Price) </th>
+                <th> @Html.DisplayNameFor(model => model.Total) </th>
+                <th> @Html.DisplayNameFor(model => model.Tip) </th>
+                <th></th>
+            </tr>
+
+            @*@foreach (var item in model.)*@
+            @Html.EditorFor(model => Model)
+
+            @*@for (int i = 0; i < )
+                {
+                    <tr>
+                        <td> @Html.TextBoxFor(modelItem => item.Name) </td>
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+
+                        <td> @Html.DisplayFor(modelItem => item.Name) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Qty) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Price) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Total) </td>
+                    <td> @Html.DisplayFor(modelItem => item.Tip) ]</td>
+                    </tr>
+                }*@
+
+        </table>
+
+
+        @*<hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Qty, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Qty, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Total, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Total, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Tip)
+                    @Html.ValidationMessageFor(model => model.Tip, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
